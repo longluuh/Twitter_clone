@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text } from "react-native";
-function NotificationsScreen(props) {
+const TweetDetailScreen = () => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>NotificationsScreen</Text>
+      <Text>TweetDetailScreen</Text>
     </View>
   );
-}
-export default NotificationsScreen;
+};
+export default TweetDetailScreen;

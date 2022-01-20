@@ -1,18 +1,24 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import React, { Component } from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./Home";
-import NotificationsScreen from "./Search";
+import LoginScreen from "./Login";
+import ProfileScreen from "./Profile";
+import TweetDetailScreen from "./TweetDetail";
 
-const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
-const Index = () => {
+function Index() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-      </Drawer.Navigator>
+      <Stack.Navigator initialRouteName="LoginScreen">
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="TweetDetail" component={TweetDetailScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
+
 export default Index;
