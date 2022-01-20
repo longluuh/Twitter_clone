@@ -1,18 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-const ProfileScreen = () => {
+const SearchScreen = () => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>ProfileScreen</Text>
+      <Text>Search</Text>
     </View>
   );
 };
-export default ProfileScreen;
+export default SearchScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  container: {},
 });
