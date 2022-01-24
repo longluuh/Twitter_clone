@@ -2,6 +2,7 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import HomeScreen from "./Home";
 import ProfileScreen from "./Profile";
 import TweetDetailScreen from "./TweetDetail";
@@ -14,25 +15,64 @@ function Index() {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-            if (route.name === "Home") {
-              iconName = focused
-                ? "ios-information-circle"
-                : "ios-information-circle-outline";
-            } else if (route.name === "Profile") {
-            }
-
-            return <Ionicons name="ios-home-outline" size={24} color="black" />;
-          },
-          tabBarActiveTintColor: "tomato",
+          tabBarActiveTintColor: "dodgerblue",
           tabBarInactiveTintColor: "gray",
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Search" component={SearchScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-        <Tab.Screen name="TweetDetail" component={TweetDetailScreen} />
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="ios-home-outline" size={24} color="dodgerblue" />
+            ),
+            headerTitle: () => (
+              <Ionicons name="ios-logo-twitter" size={30} color="dodgerblue" />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Search"
+          component={SearchScreen}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="search" size={24} color="dodgerblue" />
+            ),
+            headerTitle: () => (
+              <Ionicons name="ios-logo-twitter" size={30} color="black" />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons
+                name="md-information-circle-outline"
+                size={24}
+                color="dodgerblue"
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="TweetDetail"
+          component={TweetDetailScreen}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="twitter-retweet"
+                size={24}
+                color="dodgerblue"
+              />
+            ),
+            headerTitle: () => (
+              <Ionicons name="ios-logo-twitter" size={30} color="dodgerblue" />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
