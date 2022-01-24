@@ -1,11 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 const ProfileScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.top}></Text>
-    </View>
-  );
+  return <View style={styles.container}></View>;
 };
 export default ProfileScreen;
 

@@ -1,6 +1,5 @@
 import * as React from "react";
-import Index from "./screens/Index";
-
+import BottomTabNavigator from "./navigation/BottomTabsNavigation";
 export default function App() {
-  return <Index />;
+  return <BottomTabNavigator />;
 }

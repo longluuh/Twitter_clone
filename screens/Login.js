@@ -3,7 +3,7 @@ import { View, Text, Button } from "react-native";
 const LoginScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>LoginScreen hi</Text>
+      <Text>LoginScreen</Text>
       <Button title="Login" onPress={() => navigation.navigate("Home")} />
     </View>
   );
