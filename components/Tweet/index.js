@@ -1,9 +1,14 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
+import styles from "./styles";
+import LeftContainer from "./LeftContainer";
+import MainContainer from "./MainContainer";
+
 const Tweet = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Tweet</Text>
+    <View style={styles.container}>
+      <LeftContainer />
+      <MainContainer />
     </View>
   );
 };

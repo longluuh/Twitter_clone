@@ -1,9 +1,13 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { Tweet } from "../components/Tweet";
+import Tweet from "../components/Tweet";
 
 const HomeScreen = () => {
-  return <View style={styles.container}></View>;
+  return (
+    <View style={styles.container}>
+      <Tweet />
+    </View>
+  );
 };
 export default HomeScreen;
 

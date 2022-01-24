@@ -1,5 +1,9 @@
 import React from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
-const MainContainer = ({ user }) => <View>hi thuc us Maincontainer</View>;
+const MainContainer = ({ user }) => (
+  <View style={{ flex: 1, marginHorizontal: 60 }}>
+    <Text>news</Text>
+  </View>
+);
 export default MainContainer;
