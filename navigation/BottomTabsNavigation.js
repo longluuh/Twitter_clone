@@ -3,12 +3,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 import HomeScreen from "../screens/Home";
-import ProfileScreen from "../screens/Profile";
 import TweetDetailScreen from "../screens/TweetDetail";
 import SearchScreen from "../screens/Search";
 import NontificationScreen from "../screens/Nontification";
 import { createStackNavigator } from "@react-navigation/stack";
 import Colors from "../constants/Colors";
+import ProfilePicture from "../components/ProfilePicture";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -57,7 +57,7 @@ function BottomTabNavigator() {
           }}
         />
         <BottomTab.Screen
-          name="TweetDetail"
+          name="Mail"
           component={TweetDetailScreen}
           options={{
             tabBarIcon: ({ color, size }) => (
@@ -73,7 +73,7 @@ function BottomTabNavigator() {
   );
 }
 
-// Each tab has its own navigation stack, you can read more about this pattern here:
+// Each tab has its own navigation stack
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createStackNavigator();
 
@@ -82,7 +82,7 @@ function HomeNavigator() {
   React.useEffect(() => {
     // get the current user
     const fetchUser = async () => {
-      const userInfo = await Auth.currentAuthenticatedUser({
+      const userInfo = await awsAmplify.Auth.currentAuthenticatedUser({
         bypassCache: true,
       });
       if (!userInfo) {
@@ -90,8 +90,8 @@ function HomeNavigator() {
       }
 
       try {
-        const userData = await API.graphql(
-          graphqlOperation(setUser, { id: userInfo.attributes.sub })
+        const userData = await awsAmplify.API.graphql(
+          awsAmplify.graphqlOperation(setUser, { id: userInfo.attributes.sub })
         );
         if (userData) {
           setUser(userData.data.getUser);
@@ -109,17 +109,12 @@ function HomeNavigator() {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          headerRightContainerStyles: {
-            marginRight: 15,
-          },
-          headerRightContainerStyles: {
-            marginLeft: 15,
-          },
           headerTitle: () => (
             <Ionicons
               name={"logo-twitter"}
               size={30}
               color={Colors.light.tint}
+              style={{ marginHorizontal: "40%", color: "dodgerblue" }}
             />
           ),
           headerRight: () => (
@@ -127,15 +122,10 @@ function HomeNavigator() {
               name={"star-four-points-outline"}
               size={30}
               color={Colors.light.tint}
+              style={{ color: "dodgerblue", marginHorizontal: 15 }}
             />
           ),
-          headerLeft: () => (
-            <Ionicons
-              name="people-outline"
-              size={10}
-              color={Colors.dark.tini}
-            />
-          ),
+          headerLeft: () => <ProfilePicture size={40} image={user?.image} />,
         }}
       />
     </TabOneStack.Navigator>
