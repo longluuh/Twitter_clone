@@ -3,10 +3,10 @@ import React from "react";
 import { View } from "react-native";
 import ProfilePicture from "../../ProfilePicture";
 
-function LeftContainer() {
+function LeftContainer({ user }) {
   return (
     <View>
-      <ProfilePicture size={75} />
+      <ProfilePicture image={user.image} size={75} />
     </View>
   );
 }

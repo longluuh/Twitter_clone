@@ -9,6 +9,7 @@ import NontificationScreen from "../screens/Nontification";
 import { createStackNavigator } from "@react-navigation/stack";
 import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
+import { Image } from "react-native";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -125,7 +126,12 @@ function HomeNavigator() {
               style={{ color: "dodgerblue", marginHorizontal: 15 }}
             />
           ),
-          headerLeft: () => <ProfilePicture size={40} image={user?.image} />,
+          headerLeft: () => (
+            <Image
+              source={require("../assets/pic/Gut.jpg")}
+              style={{ height: 40, width: 40, borderRadius: 30, margin: 15 }}
+            />
+          ),
         }}
       />
     </TabOneStack.Navigator>
