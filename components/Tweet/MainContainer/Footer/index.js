@@ -5,20 +5,14 @@ import styles from "./styles";
 
 const Footer = ({ tweet }) => {
   return (
-    <View styles={styles.container}>
+    <View styles={{ flexDirection: "row" }}>
       <View style={styles.iconContainer}>
-        <Feather name="message-circle" size={24} color="grey" />
+        <Feather name="message-circle" size={22} color="grey" />
         <Text style={styles.number}> {tweet.numberOfComments} </Text>
-      </View>
-      <View style={styles.iconContainer}>
-        <EvilIcons name="retweet" size={24} color="grey" />
+        <EvilIcons name="retweet" size={28} color="grey" />
         <Text style={styles.number}> {tweet.numberOfRetweets} </Text>
-      </View>
-      <View style={styles.iconContainer}>
-        <AntDesign name="hearto" size={20} color="grey" />
+        <AntDesign name="hearto" size={18} color="grey" />
         <Text style={styles.number}> {tweet.numberOfLikes} </Text>
-      </View>
-      <View style={styles.iconContainer}>
         <EvilIcons name="share-apple" size={24} color="grey" />
       </View>
     </View>

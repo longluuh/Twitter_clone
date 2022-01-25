@@ -1,8 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import NewTweetButton from "../components/NewTweetButton";
-import Tweet from "../components/Tweet";
-import tweets from "../data/tweets";
 import Feed from "../components/Feed";
 
 const HomeScreen = () => {

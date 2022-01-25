@@ -9,9 +9,10 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-around",
   },
   number: {
-    marginLeft: 5,
+    marginRight: 35,
     color: "grey",
     textAlign: "center",
   },
