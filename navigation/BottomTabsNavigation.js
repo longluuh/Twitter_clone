@@ -10,6 +10,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
 import { Image } from "react-native";
+import NewTweetScreen from "../screens/NewTweetScreen";
+
+import NewCommentScreen from "../screens/NewCommentScreen";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -133,6 +136,16 @@ function HomeNavigator() {
             />
           ),
         }}
+      />
+      <TabOneStack.Screen
+        name="NewTweet"
+        component={NewTweetScreen}
+        options={{ headerShown: false }}
+      />
+      <TabOneStack.Screen
+        name="NewComment"
+        component={NewCommentScreen}
+        options={{ headerShown: false }}
       />
     </TabOneStack.Navigator>
   );

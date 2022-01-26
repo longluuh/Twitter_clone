@@ -8,15 +8,13 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
-import ProfilePicture from "../components/ProfilePicture";
 import { useNavigation } from "@react-navigation/native";
 
-export default function NewTweetScreen() {
+export default function NewCommentScreen() {
   const [tweet, setTweet] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
 
-  const onPosttweet = () => {
-    console.log(`Post the tweet: ${tweet}  Image: ${imageUrl} `);
+  const onPostComment = () => {
+    // console.log(`Post the tweet: ${tweet}  `);
     navigation.goBack();
   };
 
@@ -27,30 +25,20 @@ export default function NewTweetScreen() {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <AntDesign name="close" size={24} color={Colors.light.tini} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={onPosttweet}>
-          <Text style={styles.buttonText}>Tweet</Text>
+        <TouchableOpacity style={styles.button} onPress={onPostComment}>
+          <Text style={styles.buttonText}>Reply</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.newTweetContainer}>
-        <ProfilePicture
-          image={
-            "https://www.whatspaper.com/wp-content/uploads/2021/10/hollow-knight-wallpaper-whatspaper-4.jpg"
-          }
-        />
+      <View style={styles.newCommentContainer}>
         <View style={styles.inputContainer}>
+          <Text>Replying to @LongLuu577</Text>
           <TextInput
             value={tweet}
             onChangeText={(value) => setTweet(value)}
             multiline={true}
             numberOfLines={3}
             style={styles.tweetInput}
-            placeholder="What's happening?"
-          />
-          <TextInput
-            value={imageUrl}
-            onChangeText={(value) => setImageUrl(value)}
-            style={styles.imageInput}
-            placeholder="image input"
+            placeholder="Tweet your reply"
           />
         </View>
       </View>
@@ -83,7 +71,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
   },
-  newTweetContainer: {
+  newCommentContainer: {
     flexDirection: "row",
     padding: 15,
   },

@@ -1,3 +1,4 @@
+// hien thi danh sach tweet
 import React from "react";
 import { View, FlatList } from "react-native";
 import tweets from "../../data/tweets";

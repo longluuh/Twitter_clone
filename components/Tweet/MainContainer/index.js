@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import moment from "moment";
@@ -15,11 +15,13 @@ const MainContainer = ({ tweet }) => (
           {moment(tweet.createdAt).fromNow()}
         </Text>
       </View>
-      <MaterialCommunityIcons
-        name="dots-horizontal"
-        size={24}
-        color="lightgray"
-      />
+      <TouchableOpacity>
+        <MaterialCommunityIcons
+          name="dots-horizontal"
+          size={24}
+          color="lightgray"
+        />
+      </TouchableOpacity>
     </View>
     <View>
       <Text style={styles.content}>{tweet.content}</Text>

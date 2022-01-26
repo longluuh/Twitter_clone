@@ -7,7 +7,7 @@ import Colors from "../../constants/Colors";
 const NewTweetButton = () => {
   const navigation = useNavigation();
   const onPress = () => {
-    navigation.navigate("Mail");
+    navigation.navigate("NewTweet");
   };
   return (
     <TouchableOpacity
