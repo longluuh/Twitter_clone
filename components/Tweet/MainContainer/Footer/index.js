@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { Feather, EvilIcons, AntDesign } from "@expo/vector-icons";
+import { EvilIcons } from "@expo/vector-icons";
 import styles from "./styles";
 import CommentIcon from "./CommentIcon";
 import LikeIcon from "./LikeIcon";

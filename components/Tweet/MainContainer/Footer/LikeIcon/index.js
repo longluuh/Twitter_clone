@@ -3,18 +3,21 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 const LikeIcon = ({ tweet }) => {
-  const [isLike, setIsLike] = useState(1);
-  const onPress = () => setIsLike((pre) => pre + 1);
+  const [isLike, setIsLike] = useState(tweet.numberOfLikes);
+  const onPress = () => setIsLike((pre) => pre);
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
+  const like = <AntDesign name="heart" size={18} color="red" />;
+  const dislike = <AntDesign name="hearto" size={18} color="grey" />;
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onPress}>
-        {isLike % 2 === 0 ? (
-          <AntDesign name="heart" size={18} color="red" />
-        ) : (
-          <AntDesign name="hearto" size={18} color="grey" />
-        )}
+      <TouchableOpacity onPress={toggleSwitch} onPressIn={onPress}>
+        {isEnabled ? like : dislike}
       </TouchableOpacity>
-      <Text style={styles.number}> {tweet.numberOfLikes} </Text>
+      <Text style={styles.number}> {isEnabled ? isLike + 1 : isLike} </Text>
     </View>
   );
 };
