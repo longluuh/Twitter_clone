@@ -10,11 +10,7 @@ const CommentIcon = ({ tweet }) => {
   };
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        activeOpacity={0.8}
-        style={styles.Button}
-        onPress={onPress}
-      >
+      <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
         <Feather name="message-circle" size={22} color="grey" />
       </TouchableOpacity>
       <Text style={styles.number}> {tweet.numberOfComments} </Text>

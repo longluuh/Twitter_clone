@@ -4,6 +4,7 @@ import { Feather, EvilIcons, AntDesign } from "@expo/vector-icons";
 import styles from "./styles";
 import CommentIcon from "./CommentIcon";
 import LikeIcon from "./LikeIcon";
+import ShareIcon from "./ShareIcon";
 
 const Footer = ({ tweet }) => {
   return (
@@ -15,9 +16,7 @@ const Footer = ({ tweet }) => {
         </TouchableOpacity>
         <Text style={styles.number}> {tweet.numberOfRetweets + 1} </Text>
         <LikeIcon tweet={tweet} />
-        <TouchableOpacity>
-          <EvilIcons name="share-apple" size={24} color="grey" />
-        </TouchableOpacity>
+        <ShareIcon />
       </View>
     </View>
   );
