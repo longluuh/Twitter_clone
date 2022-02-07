@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, View, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import moment from "moment";
 import Footer from "./Footer";
+import DotsMenuIcon from "./DotsMenu";
 
 const MainContainer = ({ tweet }) => (
   <View style={styles.container}>
@@ -15,13 +15,7 @@ const MainContainer = ({ tweet }) => (
           {moment(tweet.createdAt).fromNow()}
         </Text>
       </View>
-      <TouchableOpacity>
-        <MaterialCommunityIcons
-          name="dots-horizontal"
-          size={24}
-          color="lightgray"
-        />
-      </TouchableOpacity>
+      <DotsMenuIcon />
     </View>
     <View>
       <Text style={styles.content}>{tweet.content}</Text>
