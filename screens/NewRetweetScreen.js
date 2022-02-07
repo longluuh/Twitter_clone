@@ -9,19 +9,14 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import { useNavigation } from "@react-navigation/native";
-import tweets from "../data/tweets";
 
-export default function NewCommentScreen({ route, navigati }) {
+export default function NewRetweetScreen() {
   const [tweet, setTweet] = useState("");
-  const [countComment, setCountComment] = useState();
   const onPostComment = () => {
     // console.log(`Post the tweet: ${tweet}  `);
     navigation.goBack();
   };
   const navigation = useNavigation();
-  const getData = ({ tweet }) => {
-    return <Text>@{tweet.user.username}</Text>;
-  };
 
   return (
     <View style={styles.container}>
@@ -30,13 +25,13 @@ export default function NewCommentScreen({ route, navigati }) {
           <AntDesign name="close" size={24} color={Colors.light.tini} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={onPostComment}>
-          <Text style={styles.buttonText}>Reply</Text>
+          <Text style={styles.buttonText}>Retweet</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.newCommentContainer}>
         <View style={styles.inputContainer}>
           <Text>
-            Replying to <Text style={{ color: "dodgerblue" }}>@LongLuu577</Text>{" "}
+            Retweet <Text style={{ color: "dodgerblue" }}>@LongLuu577</Text>{" "}
           </Text>
           <TextInput
             value={tweet}
@@ -44,7 +39,7 @@ export default function NewCommentScreen({ route, navigati }) {
             multiline={true}
             numberOfLines={3}
             style={styles.commentInput}
-            placeholder="Tweet your reply"
+            placeholder="Retweet"
           />
         </View>
       </View>

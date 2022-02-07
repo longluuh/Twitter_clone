@@ -14,7 +14,7 @@ const tweets = [
       "https://www.whatspaper.com/wp-content/uploads/2021/10/hollow-knight-wallpaper-whatspaper-4.jpg",
     numberOfComments: 123,
     numberOfRetweets: 11,
-    numberOfLikes: 10,
+    numberOfLikes: 247,
   },
   {
     id: "t2",
@@ -28,9 +28,9 @@ const tweets = [
     createdAt: "2020-08-27T12:00:00.000Z",
     content:
       "Beneath the fading town of Dirtmouth sleeps an ancient, ruined kingdom. Many are drawn below the surface, searching for riches, or glory, or answers to old secrets. ",
-    numberOfComments: 4,
+    numberOfComments: 2,
     numberOfRetweets: 11,
-    numberOfLikes: 99,
+    numberOfLikes: 156,
   },
   {
     id: "t3",
@@ -43,9 +43,9 @@ const tweets = [
     },
     createdAt: "2020-08-27T12:00:00.000Z",
     content: "Hello World",
-    numberOfComments: 4,
+    numberOfComments: 7,
     numberOfRetweets: 11,
-    numberOfLikes: 99,
+    numberOfLikes: 89,
   },
   {
     id: "t4",
@@ -60,7 +60,7 @@ const tweets = [
     content: "i don't know anything",
     numberOfComments: 4,
     numberOfRetweets: 11,
-    numberOfLikes: 99,
+    numberOfLikes: 0,
   },
 ];
 

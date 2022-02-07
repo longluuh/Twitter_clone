@@ -13,6 +13,7 @@ import { Image } from "react-native";
 import NewTweetScreen from "../screens/NewTweetScreen";
 
 import NewCommentScreen from "../screens/NewCommentScreen";
+import NewRetweetScreen from "../screens/NewRetweetScreen";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -145,6 +146,11 @@ function HomeNavigator() {
       <TabOneStack.Screen
         name="NewComment"
         component={NewCommentScreen}
+        options={{ headerShown: false }}
+      />
+      <TabOneStack.Screen
+        name="NewRetweet"
+        component={NewRetweetScreen}
         options={{ headerShown: false }}
       />
     </TabOneStack.Navigator>
