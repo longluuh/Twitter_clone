@@ -83,30 +83,30 @@ function BottomTabNavigator() {
 const TabOneStack = createStackNavigator();
 
 function HomeNavigator() {
-  const [user, setUser] = React.useState(null);
-  React.useEffect(() => {
-    // get the current user
-    const fetchUser = async () => {
-      const userInfo = await awsAmplify.Auth.currentAuthenticatedUser({
-        bypassCache: true,
-      });
-      if (!userInfo) {
-        return;
-      }
+  // const [user, setUser] = React.useState(null);
+  // React.useEffect(() => {
+  //   // get the current user
+  //   const fetchUser = async () => {
+  //     const userInfo = await awsAmplify.Auth.currentAuthenticatedUser({
+  //       bypassCache: true,
+  //     });
+  //     if (!userInfo) {
+  //       return;
+  //     }
 
-      try {
-        const userData = await awsAmplify.API.graphql(
-          awsAmplify.graphqlOperation(setUser, { id: userInfo.attributes.sub })
-        );
-        if (userData) {
-          setUser(userData.data.getUser);
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchUser();
-  }, []);
+  //     try {
+  //       const userData = await awsAmplify.API.graphql(
+  //         awsAmplify.graphqlOperation(setUser, { id: userInfo.attributes.sub })
+  //       );
+  //       if (userData) {
+  //         setUser(userData.data.getUser);
+  //       }
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   };
+  //   fetchUser();
+  // }, []);
 
   return (
     <TabOneStack.Navigator>
