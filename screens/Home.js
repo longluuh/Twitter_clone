@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import NewTweetButton from "../components/NewTweetButton";
 
 import ApiContainer from "../data/try_/ApiContainer";
-import GetApitweets from "../components/Feed/getApiTweets";
+import GetApitweets from "../components/Tweets/getApiTweets";
 
 const HomeScreen = () => {
   return (

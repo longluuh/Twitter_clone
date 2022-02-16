@@ -1,6 +1,6 @@
 var CONFIG = {
   method: "get",
-  url: "https://api.twitter.com/2/tweets/search/recent?query=from: MarvelStudios&tweet.fields=attachments,author_id,created_at,public_metrics,source&expansions=author_id,attachments.media_keys&media.fields=public_metrics,duration_ms,preview_image_url",
+  url: "https://api.twitter.com/2/tweets/search/recent?query=from: MarvelStudios&tweet.fields=attachments,author_id,created_at,public_metrics,source&expansions=author_id,attachments.media_keys&media.fields=public_metrics,duration_ms,preview_image_url,url&user.fields=name,profile_image_url",
   headers: {
     Authorization:
       "Bearer AAAAAAAAAAAAAAAAAAAAAFbVYQEAAAAAEDWQ33AW%2B%2Bt7w0FrcH7lwhBBFgc%3D2RufDOC8i4PwjESiDCPwQIvT8Ouod7Q4NEeMZokKE0MEsPToqO",

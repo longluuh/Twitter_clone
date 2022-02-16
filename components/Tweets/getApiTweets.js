@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import { View, Text, FlatList, Dimensions, Image } from "react-native";
 import newsApiRequest from "../../data/ApiService";
@@ -32,25 +31,36 @@ export default function GetApitweets() {
       <View style={styles.constainerTweets}>
         {/* Left container */}
         <View>
-          <Image
-            source={require("../../assets/pic/Gut.jpg")}
-            style={{
-              width: 50,
-              height: 50,
-              borderRadius: 50,
-              margin: 15,
-            }}
-          />
+          {twitter.includes.users.map((item) => (
+            <Image
+              source={{ uri: item.profile_image_url }}
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 50,
+                margin: 15,
+              }}
+            />
+          ))}
         </View>
 
         {/* Main container */}
         <View style={styles.container}>
           <View style={styles.tweetHeaderContainer}>
             <View style={styles.tweetHeaderNames}>
-              <Text style={styles.name}>Marvel</Text>
-              <Text style={styles.username}>@Marvels</Text>
+              {twitter.includes.users.map((item) => (
+                <Text style={styles.name}>{item.name} </Text>
+              ))}
+              {twitter.includes.users.map((item) => (
+                <Text style={styles.username}>@{item.username} </Text>
+              ))}
               <Text style={styles.createdAt}>
-                {moment(tweet.created_at).fromNow()}
+                {moment(tweet.created_at)
+                  .fromNow()
+                  .replace(" hours ago", "h")
+                  .replace(" once hour ago", "h")
+                  .replace(" days ago", "d")
+                  .replace(" a day ago", "d")}
               </Text>
             </View>
             <DotsMenuIcon />
@@ -59,7 +69,7 @@ export default function GetApitweets() {
             <Text style={styles.content}>{tweet.text}</Text>
             {getMediaData(tweet.attachments, twitter.includes).map((item) => {
               return (
-                <View style={{ backgroundColor: "red" }}>
+                <View>
                   {item.type == "photo" ? (
                     <Image style={styles.image} source={{ uri: item.url }} />
                   ) : (
@@ -77,7 +87,6 @@ export default function GetApitweets() {
       </View>
     );
   };
-
   return (
     <View style={{ width: "100%" }}>
       <FlatList
