@@ -3,11 +3,15 @@ import { View, StyleSheet } from "react-native";
 import NewTweetButton from "../components/NewTweetButton";
 import Feed from "../components/Feed";
 
+import ApiContainer from "../data/try_/ApiContainer";
+import GetApitweets from "../components/Feed/getApiTweets";
+
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      {/* <Tweet tweet={tweets[0]} /> */}
-      <Feed />
+      {/* <Feed /> */}
+      {/* <ApiContainer /> */}
+      <GetApitweets />
       <NewTweetButton />
     </View>
   );
