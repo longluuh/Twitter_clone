@@ -1,6 +1,18 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  main: {
+    backgroundColor: "red",
+    margin: 0.03,
+  },
+  constainerTweets: {
+    width: "100%",
+    flexDirection: "row",
+    padding: 15,
+    borderBottomWidth: 1,
+    borderColor: "lightgrey",
+    backgroundColor: "#fff",
+  },
   container: {
     flex: 1,
     marginHorizontal: 5,
