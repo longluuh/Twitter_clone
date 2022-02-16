@@ -6,6 +6,7 @@ import moment from "moment";
 import DotsMenuIcon from "../DotsMenuIcon";
 import styles from "./styles";
 import Footer from "../Footer";
+import { getMediaData } from "../../data/handleData";
 
 const { width, height } = Dimensions.get("window");
 
@@ -56,9 +57,9 @@ export default function GetApitweets() {
           </View>
           <View>
             <Text style={styles.content}>{tweet.text}</Text>
-            {/* {getMediaData(tweet.attachments, twitter.includes).map((item) => {
+            {getMediaData(tweet.attachments, twitter.includes).map((item) => {
               return (
-                <View>
+                <View style={{ backgroundColor: "red" }}>
                   {item.type == "photo" ? (
                     <Image style={styles.image} source={{ uri: item.url }} />
                   ) : (
@@ -69,7 +70,7 @@ export default function GetApitweets() {
                   )}
                 </View>
               );
-            })} */}
+            })}
           </View>
           <Footer tweet={tweet} />
         </View>
