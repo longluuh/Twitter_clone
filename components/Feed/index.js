@@ -2,7 +2,7 @@
 import React from "react";
 import { View, FlatList } from "react-native";
 import tweets from "../../data/tweets";
-import Tweet from "../Tweet";
+// import Tweet from "../Tweet";
 
 const Feed = () => {
   return (

@@ -2,6 +2,8 @@ import axios from "axios";
 import React from "react";
 import { View, Text, FlatList, StyleSheet, Dimensions } from "react-native";
 import newsApiRequest from "../../data/ApiService";
+import Footer from "../Footer";
+import DotsMenuIcon from "../DotsMenuIcon";
 
 // import Tweets from "../Tweets";
 
@@ -28,8 +30,48 @@ export default function GetApitweets() {
   const Tweets = ({ tweet }) => {
     return (
       <View style={styles.constainerTweets}>
-        <LeftContainer user={tweet.user} />
-        <MainContainer tweet={tweet} />
+        <View>
+          <Image
+            source={require("../../assets/pic/Gut.jpg")}
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 50,
+              margin: 15,
+            }}
+          />
+        </View>
+
+        <View style={styles.container}>
+          <View style={styles.tweetHeaderContainer}>
+            <View style={styles.tweetHeaderNames}>
+              <Text style={styles.name}>Marvel</Text>
+              <Text style={styles.username}>@Marvels</Text>
+              <Text style={styles.createdAt}>
+                {moment(tweet.created_at).fromNow()}
+              </Text>
+            </View>
+            <DotsMenuIcon />
+          </View>
+          <View>
+            <Text style={styles.content}>{tweet.text}</Text>
+            {/* {getMediaData(tweet.attachments, tweet.includes).map((item) => {
+        return (
+          <View>
+            {item.type == "photo" ? (
+              <Image style={styles.image} source={{ uri: item.url }} />
+            ) : (
+              <Image
+                style={styles.image}
+                source={{ uri: item.preview_image_url }}
+              />
+            )}
+          </View>
+        );
+      })} */}
+          </View>
+          <Footer tweet={tweet} />
+        </View>
       </View>
     );
   };
