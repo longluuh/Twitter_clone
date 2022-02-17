@@ -1,19 +1,17 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
-import HomeScreen from "../screens/Home";
+import { Ionicons, Feather } from "@expo/vector-icons";
 import TweetDetailScreen from "../screens/TweetDetail";
 import SearchScreen from "../screens/Search";
 import NontificationScreen from "../screens/Nontification";
 import { createStackNavigator } from "@react-navigation/stack";
-import Colors from "../constants/Colors";
-import ProfilePicture from "../components/ProfilePicture";
-import { Image } from "react-native";
 
 import NewTweetScreen from "../screens/NewTweetScreen";
 import NewCommentScreen from "../screens/NewCommentScreen";
 import NewRetweetScreen from "../screens/NewRetweetScreen";
+
+import DrawerNavigator from "./DrawerNavigator";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -109,50 +107,11 @@ function HomeNavigator() {
   // }, []);
 
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
-        options={{
-          headerTitle: () => (
-            <Ionicons
-              name={"logo-twitter"}
-              size={30}
-              color={Colors.light.tint}
-              style={{ marginHorizontal: "40%", color: "dodgerblue" }}
-            />
-          ),
-          headerRight: () => (
-            <MaterialCommunityIcons
-              name={"star-four-points-outline"}
-              size={30}
-              color={Colors.light.tint}
-              style={{ color: "dodgerblue", marginHorizontal: 15 }}
-            />
-          ),
-          headerLeft: () => (
-            <Image
-              source={require("../assets/pic/Gut.jpg")}
-              style={{ height: 40, width: 40, borderRadius: 30, margin: 15 }}
-            />
-          ),
-        }}
-      />
-      <TabOneStack.Screen
-        name="NewTweet"
-        component={NewTweetScreen}
-        options={{ headerShown: false }}
-      />
-      <TabOneStack.Screen
-        name="NewComment"
-        component={NewCommentScreen}
-        options={{ headerShown: false }}
-      />
-      <TabOneStack.Screen
-        name="NewRetweet"
-        component={NewRetweetScreen}
-        options={{ headerShown: false }}
-      />
+    <TabOneStack.Navigator screenOptions={{ headerShown: false }}>
+      <TabOneStack.Screen name="HomeScreen" component={DrawerNavigator} />
+      <TabOneStack.Screen name="NewTweet" component={NewTweetScreen} />
+      <TabOneStack.Screen name="NewComment" component={NewCommentScreen} />
+      <TabOneStack.Screen name="NewRetweet" component={NewRetweetScreen} />
     </TabOneStack.Navigator>
   );
 }

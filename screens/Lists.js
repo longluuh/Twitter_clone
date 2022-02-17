@@ -1,13 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-const ProfileScreen = () => {
+const ListsScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>this is profile user</Text>
+      <Text>this is Lists Screen</Text>
     </View>
   );
 };
-export default ProfileScreen;
+export default ListsScreen;
 
 const styles = StyleSheet.create({
   container: {
