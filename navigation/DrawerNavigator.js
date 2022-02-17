@@ -1,6 +1,6 @@
 import "react-native-gesture-handler";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
@@ -17,11 +17,20 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      screenOptions={{
+        headerShown: false,
+        drawerStyle: {
+          backgroundColor: "#c6cbef",
+          width: "70%",
+        },
+      }}
+    >
       <Drawer.Screen
         name="Home"
         component={HomeScreen}
         options={({ navigation }) => ({
+          headerShown: true,
           headerTitle: () => (
             <Ionicons
               name={"logo-twitter"}

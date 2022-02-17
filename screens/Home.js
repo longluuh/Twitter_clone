@@ -2,13 +2,11 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import NewTweetButton from "../components/NewTweetButton";
 
-import ApiContainer from "../data/try_/ApiContainer";
 import GetApitweets from "../components/Tweets/getApiTweets";
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      {/* <ApiContainer /> */}
       <GetApitweets />
       <NewTweetButton />
     </View>

@@ -1,9 +1,18 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import Colors from "../constants/Colors";
 const TopicsScreen = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text>this is Topics Screen</Text>
+      <View style={styles.headerContainer}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <AntDesign name="close" size={24} color={Colors.light.tini} />
+        </TouchableOpacity>
+      </View>
+      <Text>this is Topics user</Text>
     </View>
   );
 };
@@ -12,14 +21,14 @@ export default TopicsScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: "flex-start",
+    backgroundColor: "white",
   },
-  top: {
-    height: 250,
+  headerContainer: {
+    backgroundColor: "white",
     width: "100%",
-    backgroundColor: "dodgerblue",
-    bottom: 350,
-    borderRadius: 30,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 24,
   },
 });

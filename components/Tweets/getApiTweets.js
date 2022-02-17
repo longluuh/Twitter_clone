@@ -1,13 +1,11 @@
 import React from "react";
-import { View, Text, FlatList, Dimensions, Image } from "react-native";
+import { View, Text, FlatList, Image, ActivityIndicator } from "react-native";
 import newsApiRequest from "../../data/ApiService";
 import moment from "moment";
 import DotsMenuIcon from "../DotsMenuIcon";
 import styles from "./styles";
 import Footer from "../Footer";
 import { getMediaData } from "../../data/handleData";
-
-const { width, height } = Dimensions.get("window");
 
 export default function GetApitweets() {
   const [twitter, setTwitter] = React.useState(null);
@@ -17,14 +15,6 @@ export default function GetApitweets() {
     });
   }, []);
   if (!twitter) return null;
-
-  const NewsCard = ({ item }) => {
-    return (
-      <View style={styles.main}>
-        <Text>{item.type}</Text>
-      </View>
-    );
-  };
 
   const Tweets = ({ tweet }) => {
     return (
