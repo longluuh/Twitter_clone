@@ -10,8 +10,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
 import { Image } from "react-native";
-import NewTweetScreen from "../screens/NewTweetScreen";
 
+import NewTweetScreen from "../screens/NewTweetScreen";
 import NewCommentScreen from "../screens/NewCommentScreen";
 import NewRetweetScreen from "../screens/NewRetweetScreen";
 

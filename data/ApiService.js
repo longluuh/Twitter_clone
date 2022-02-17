@@ -1,7 +1,7 @@
 import axios from "axios";
-import { CONFIG } from "../constants/Api_constant";
+import { CONFIG, USERPROFILE } from "../constants/Api_constant";
 
 function newAPIrequest({}) {
-  return axios(CONFIG);
+  return axios(CONFIG, USERPROFILE);
 }
 export default newAPIrequest;
