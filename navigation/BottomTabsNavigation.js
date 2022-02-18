@@ -2,11 +2,11 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, Feather } from "@expo/vector-icons";
-import TweetDetailScreen from "../screens/TweetDetail";
-import SearchScreen from "../screens/Search";
-import NontificationScreen from "../screens/Nontification";
 import { createStackNavigator } from "@react-navigation/stack";
 
+import SearchScreen from "../screens/Search";
+import NontificationScreen from "../screens/Nontification";
+import TweetDetailScreen from "../screens/TweetDetail";
 import NewTweetScreen from "../screens/NewTweetScreen";
 import NewCommentScreen from "../screens/NewCommentScreen";
 import NewRetweetScreen from "../screens/NewRetweetScreen";

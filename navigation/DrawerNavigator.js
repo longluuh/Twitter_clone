@@ -12,6 +12,8 @@ import MomentsScreen from "../screens/Moments";
 import PurchasesScreen from "../screens/Purchases";
 import MonetizationScreen from "../screens/Monetization";
 import HomeScreen from "../screens/Home";
+import { DrawerContent } from "../screens/DrawerContent";
+import { DrawerContent_try } from "../screens/Drawer_try";
 
 const Drawer = createDrawerNavigator();
 
@@ -21,10 +23,11 @@ function DrawerNavigator() {
       screenOptions={{
         headerShown: false,
         drawerStyle: {
-          backgroundColor: "#c6cbef",
           width: "70%",
         },
       }}
+      drawerContent={(props) => <DrawerContent {...props} />}
+      // drawerContent={(props) => <DrawerContent_try {...props} />}
     >
       <Drawer.Screen
         name="Home"

@@ -50,7 +50,7 @@ export default function GetApitweets() {
                   .replace(" hours ago", "h")
                   .replace(" once hour ago", "h")
                   .replace(" days ago", "d")
-                  .replace(" a day ago", "d")}
+                  .replace("a day ago", "1d")}
               </Text>
             </View>
             <DotsMenuIcon />

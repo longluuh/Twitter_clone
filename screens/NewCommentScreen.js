@@ -9,7 +9,6 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import { useNavigation } from "@react-navigation/native";
-import tweets from "../data/tweets";
 
 export default function NewCommentScreen({ route, navigati }) {
   const [tweet, setTweet] = useState("");
