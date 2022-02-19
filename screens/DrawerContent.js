@@ -23,7 +23,13 @@ export function DrawerContent(props) {
       {/* User information */}
       <View style={styles.userInfoSection}>
         <View style={styles.topDrawerSection}>
-          <Avatar.Image source={require("../assets/pic/Gut.jpg")} size={50} />
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.navigate("Profile");
+            }}
+          >
+            <Avatar.Image source={require("../assets/pic/Gut.jpg")} size={50} />
+          </TouchableOpacity>
           <TouchableOpacity>
             <MaterialCommunityIcons
               name="account-box-multiple-outline"
@@ -74,6 +80,20 @@ export function DrawerContent(props) {
                 props.navigation.navigate("Profile");
               }}
             />
+            <DrawerItem
+              icon={({ color, size }) => (
+                <MaterialCommunityIcons
+                  name="account-outline"
+                  color={color}
+                  size={size}
+                />
+              )}
+              label="Profile_try"
+              onPress={() => {
+                props.navigation.navigate("Profile_try");
+              }}
+            />
+
             <DrawerItem
               icon={({ color, size }) => (
                 <MaterialCommunityIcons

@@ -14,6 +14,7 @@ import MonetizationScreen from "../screens/Monetization";
 import HomeScreen from "../screens/Home";
 import { DrawerContent } from "../screens/DrawerContent";
 import { DrawerContent_try } from "../screens/Drawer_try";
+import ProfileScreen_try from "../screens/Profile_try";
 
 const Drawer = createDrawerNavigator();
 
@@ -61,6 +62,7 @@ function DrawerNavigator() {
         })}
       />
       <Drawer.Screen name="Profile" component={ProfileScreen} />
+      <Drawer.Screen name="Profile_try" component={ProfileScreen_try} />
       <Drawer.Screen name="Lists" component={ListsScreen} />
       <Drawer.Screen name="Topics" component={TopicsScreen} />
       <Drawer.Screen name="Bookmarks" component={BookmarksScreen} />
