@@ -80,6 +80,7 @@ export default function GetApitweets() {
   return (
     <View style={{ width: "100%" }}>
       <FlatList
+        nestedScrollEnabled={true}
         data={twitter.data}
         keyExtractor={(item, index) => "key" + index}
         renderItem={({ item }) => {

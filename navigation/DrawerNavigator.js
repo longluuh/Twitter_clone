@@ -1,10 +1,10 @@
 import "react-native-gesture-handler";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Image, TouchableOpacity } from "react-native";
+import { Image, TouchableWithoutFeedback } from "react-native";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
-import ProfileScreen from "../screens/Profile";
+import ProfileScreen_ios from "../screens/Profile_ios";
 import ListsScreen from "../screens/Lists";
 import TopicsScreen from "../screens/Topics";
 import BookmarksScreen from "../screens/Bookmarts";
@@ -13,8 +13,7 @@ import PurchasesScreen from "../screens/Purchases";
 import MonetizationScreen from "../screens/Monetization";
 import HomeScreen from "../screens/Home";
 import { DrawerContent } from "../screens/DrawerContent";
-import { DrawerContent_try } from "../screens/Drawer_try";
-import ProfileScreen_try from "../screens/Profile_try";
+import ProfileScreenAndroid from "../screens/Profile_android";
 
 const Drawer = createDrawerNavigator();
 
@@ -28,7 +27,6 @@ function DrawerNavigator() {
         },
       }}
       drawerContent={(props) => <DrawerContent {...props} />}
-      // drawerContent={(props) => <DrawerContent_try {...props} />}
     >
       <Drawer.Screen
         name="Home"
@@ -52,17 +50,17 @@ function DrawerNavigator() {
             />
           ),
           headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+            <TouchableWithoutFeedback onPress={() => navigation.toggleDrawer()}>
               <Image
                 source={require("../assets/pic/Gut.jpg")}
                 style={{ height: 40, width: 40, borderRadius: 30, margin: 15 }}
               />
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
           ),
         })}
       />
-      <Drawer.Screen name="Profile" component={ProfileScreen} />
-      <Drawer.Screen name="Profile_try" component={ProfileScreen_try} />
+      <Drawer.Screen name="Profile_ios" component={ProfileScreen_ios} />
+      <Drawer.Screen name="ProfileAndroid" component={ProfileScreenAndroid} />
       <Drawer.Screen name="Lists" component={ListsScreen} />
       <Drawer.Screen name="Topics" component={TopicsScreen} />
       <Drawer.Screen name="Bookmarks" component={BookmarksScreen} />

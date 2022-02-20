@@ -16,6 +16,7 @@ import {
 } from "react-native-safe-area-context";
 import { BlurView } from "expo-blur";
 import { useNavigation } from "@react-navigation/native";
+import GetApitweets from "../components/Tweets/getApiTweets";
 
 // get user tweeter
 function generateTweets(limit) {
@@ -48,7 +49,7 @@ const AnimatedImageBackground =
 
 const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
 
-export default function ProfileScreen() {
+export default function ProfileScreen_ios() {
   // Keeps notches away
   return (
     <SafeAreaProvider>
@@ -326,8 +327,8 @@ function Profile() {
             </View>
           </View>
           {/* Tweets user */}
-          <View style={[styles.container, { marginBottom: "10%" }]}>
-            {TWEETS.map((item, index) => (
+          <View style={[styles.container, { marginBottom: "5%" }]}>
+            {/* {TWEETS.map((item, index) => (
               <View key={item.key} style={styles.tweet}>
                 <Image
                   source={require("../assets/pic/Gut.jpg")}
@@ -365,7 +366,8 @@ function Profile() {
                   </Text>
                 </View>
               </View>
-            ))}
+            ))} */}
+            <GetApitweets />
           </View>
         </View>
       </Animated.ScrollView>

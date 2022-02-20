@@ -1,5 +1,10 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import {
   Avatar,
@@ -23,13 +28,13 @@ export function DrawerContent(props) {
       {/* User information */}
       <View style={styles.userInfoSection}>
         <View style={styles.topDrawerSection}>
-          <TouchableOpacity
+          <TouchableWithoutFeedback
             onPress={() => {
-              props.navigation.navigate("Profile");
+              props.navigation.navigate("ProfileAndroid");
             }}
           >
             <Avatar.Image source={require("../assets/pic/Gut.jpg")} size={50} />
-          </TouchableOpacity>
+          </TouchableWithoutFeedback>
           <TouchableOpacity>
             <MaterialCommunityIcons
               name="account-box-multiple-outline"
@@ -53,7 +58,7 @@ export function DrawerContent(props) {
           </View>
         </View>
       </View>
-
+      {/* Navigation */}
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
           {/* Navigator */}
@@ -77,10 +82,10 @@ export function DrawerContent(props) {
               )}
               label="Profile"
               onPress={() => {
-                props.navigation.navigate("Profile");
+                props.navigation.navigate("ProfileAndroid");
               }}
             />
-            <DrawerItem
+            {/* <DrawerItem
               icon={({ color, size }) => (
                 <MaterialCommunityIcons
                   name="account-outline"
@@ -88,11 +93,11 @@ export function DrawerContent(props) {
                   size={size}
                 />
               )}
-              label="Profile_try"
+              label="Profile_ios"
               onPress={() => {
-                props.navigation.navigate("Profile_try");
+                props.navigation.navigate("Profile_ios");
               }}
-            />
+            /> */}
 
             <DrawerItem
               icon={({ color, size }) => (
