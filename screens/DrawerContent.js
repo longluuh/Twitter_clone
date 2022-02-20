@@ -22,7 +22,22 @@ import {
   FontAwesome5,
 } from "@expo/vector-icons";
 
+import newApiRequestUser from "../data/ApiServiceUser";
+
 export function DrawerContent(props) {
+  const [twitterUser, setTwitterUser] = React.useState(null);
+  React.useEffect(() => {
+    newApiRequestUser({}).then((response) => {
+      setTwitterUser(response.data);
+    });
+  }, []);
+  if (!twitterUser) return null;
+
+  const nameTweeter = twitterUser.data.name;
+  const userNameTweeter = twitterUser.data.username;
+  const followingTweeter = twitterUser.data.public_metrics.following_count;
+  const followerTweeter = twitterUser.data.public_metrics.followers_count;
+
   return (
     <View style={{ flex: 1 }}>
       {/* User information */}
@@ -33,7 +48,10 @@ export function DrawerContent(props) {
               props.navigation.navigate("ProfileAndroid");
             }}
           >
-            <Avatar.Image source={require("../assets/pic/Gut.jpg")} size={50} />
+            <Avatar.Image
+              source={{ uri: twitterUser.data.profile_image_url }}
+              size={50}
+            />
           </TouchableWithoutFeedback>
           <TouchableOpacity>
             <MaterialCommunityIcons
@@ -44,16 +62,20 @@ export function DrawerContent(props) {
           </TouchableOpacity>
         </View>
         <View>
-          <Title style={styles.title}>Longluu</Title>
-          <Caption style={styles.caption}>@Longluu12092</Caption>
+          <Title style={styles.title}>{nameTweeter}</Title>
+          <Caption style={styles.caption}>@{userNameTweeter}</Caption>
         </View>
         <View style={[styles.row, { marginBottom: 5 }]}>
           <View style={styles.section}>
-            <Paragraph style={[styles.paragraph, styles.caption]}>70</Paragraph>
+            <Paragraph style={[styles.paragraph, styles.caption]}>
+              {followingTweeter}
+            </Paragraph>
             <Caption style={styles.caption}>Following</Caption>
           </View>
           <View style={styles.section}>
-            <Paragraph style={[styles.paragraph, styles.caption]}>2</Paragraph>
+            <Paragraph style={[styles.paragraph, styles.caption]}>
+              {followerTweeter}
+            </Paragraph>
             <Caption style={styles.caption}>Follower</Caption>
           </View>
         </View>

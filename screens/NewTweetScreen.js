@@ -5,20 +5,31 @@ import {
   View,
   StyleSheet,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import Colors from "../constants/Colors";
-import ProfilePicture from "../components/ProfilePicture";
 import { useNavigation } from "@react-navigation/native";
 
+import Colors from "../constants/Colors";
+import ProfilePicture from "../components/ProfilePicture";
+import newApiRequestUser from "../data/ApiServiceUser";
+
 export default function NewTweetScreen() {
-  const [tweet, setTweet] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [postTweet, setPostTweet] = useState("");
+  const [postImageUrl, setPostImageUrl] = useState("");
 
   const onPosttweet = () => {
-    console.log(`Post the tweet: ${tweet}  Image: ${imageUrl} `);
+    console.log(`Post the tweet: ${postTweet}  Image: ${postImageUrl} `);
     navigation.goBack();
   };
+  // get user tweeter
+  const [twitterUser, setTwitterUser] = React.useState(null);
+  React.useEffect(() => {
+    newApiRequestUser({}).then((response) => {
+      setTwitterUser(response.data);
+    });
+  }, []);
+  if (!twitterUser) return null;
 
   const navigation = useNavigation();
   return (
@@ -32,23 +43,32 @@ export default function NewTweetScreen() {
         </TouchableOpacity>
       </View>
       <View style={styles.newTweetContainer}>
-        <ProfilePicture
+        {/* <ProfilePicture
           image={
             "https://www.whatspaper.com/wp-content/uploads/2021/10/hollow-knight-wallpaper-whatspaper-4.jpg"
           }
+        /> */}
+        <Image
+          source={{ uri: twitterUser.data.profile_image_url }}
+          style={{
+            height: 50,
+            width: 50,
+            borderRadius: 40,
+            margin: 15,
+          }}
         />
         <View style={styles.inputContainer}>
           <TextInput
-            value={tweet}
-            onChangeText={(value) => setTweet(value)}
+            value={postTweet}
+            onChangeText={(value) => setPostTweet(value)}
             multiline={true}
             numberOfLines={3}
             style={styles.tweetInput}
             placeholder="What's happening?"
           />
           <TextInput
-            value={imageUrl}
-            onChangeText={(value) => setImageUrl(value)}
+            value={postImageUrl}
+            onChangeText={(value) => setPostImageUrl(value)}
             style={styles.imageInput}
             placeholder="image input"
           />

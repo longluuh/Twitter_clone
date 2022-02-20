@@ -33,9 +33,6 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="ios-home-outline" size={24} color="dodgerblue" />
             ),
-            headerTitle: () => (
-              <Ionicons name="ios-logo-twitter" size={30} color="dodgerblue" />
-            ),
           }}
         />
         <BottomTab.Screen
@@ -44,9 +41,6 @@ function BottomTabNavigator() {
           options={{
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="search" size={24} color="dodgerblue" />
-            ),
-            headerTitle: () => (
-              <Ionicons name="ios-logo-twitter" size={30} color="black" />
             ),
           }}
         />
@@ -65,9 +59,6 @@ function BottomTabNavigator() {
           options={{
             tabBarIcon: ({ color, size }) => (
               <Feather name="mail" size={24} color="dodgerblue" />
-            ),
-            headerTitle: () => (
-              <Ionicons name="ios-logo-twitter" size={30} color="dodgerblue" />
             ),
           }}
         />

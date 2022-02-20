@@ -8,22 +8,25 @@ import {
   Image,
   Animated,
   TouchableOpacity,
-  TouchableNativeFeedback,
 } from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 
 import GetApitweets from "../components/Tweets/getApiTweets";
+import newApiRequestUser from "../data/ApiServiceUser";
+import ProfilePicture from "../components/ProfilePicture";
 
 const HEADER_MAX_HEIGHT = 120;
 const HEADER_MIN_HEIGHT = 70;
 const PROFILE_IMAGE_MAX_HEIGHT = 80;
 const PROFILE_IMAGE_MIN_HEIGHT = 40;
 
-const nameTweet = "LongLuu";
-const userNameTweet = "LongLuu577712";
+const nameTweet = "Long";
+const userNameTweet = "Long77179183";
 const countTweet = 10;
+const followingTweeter = 28;
+const followerTweeter = 2;
 
 class ProfileScreenAndroid extends Component {
   constructor(props) {
@@ -224,6 +227,7 @@ class ProfileScreenAndroid extends Component {
               },
             ]}
           >
+            {/* profile picture user */}
             <Animated.View
               style={{
                 height: profileImageHeight,
@@ -236,10 +240,12 @@ class ProfileScreenAndroid extends Component {
                 marginLeft: 10,
               }}
             >
-              <Image
+              {/* <Image
                 source={require("../assets/pic/Gut.jpg")}
                 style={{ flex: 1, width: null, height: null }}
-              />
+              /> */}
+
+              <ProfilePicture size={null} />
             </Animated.View>
 
             {/* Name */}
@@ -255,6 +261,7 @@ class ProfileScreenAndroid extends Component {
             >
               {nameTweet}
             </Text>
+
             {/* UserName */}
             <Text
               style={[
@@ -285,7 +292,7 @@ class ProfileScreenAndroid extends Component {
                   },
                 ]}
               >
-                70{" "}
+                {followingTweeter}{" "}
                 <Text
                   style={{
                     color: "gray",
@@ -298,7 +305,7 @@ class ProfileScreenAndroid extends Component {
 
               {/* Followers */}
               <Text style={[styles.text, { fontWeight: "bold" }]}>
-                2{" "}
+                {followerTweeter}{" "}
                 <Text
                   style={{
                     color: "gray",

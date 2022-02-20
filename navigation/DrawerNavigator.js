@@ -1,4 +1,5 @@
 import "react-native-gesture-handler";
+import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Image, TouchableWithoutFeedback } from "react-native";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
@@ -15,9 +16,19 @@ import HomeScreen from "../screens/Home";
 import { DrawerContent } from "../screens/DrawerContent";
 import ProfileScreenAndroid from "../screens/Profile_android";
 
+import newApiRequestUser from "../data/ApiServiceUser";
+
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
+  const [twitterUser, setTwitterUser] = React.useState(null);
+  React.useEffect(() => {
+    newApiRequestUser({}).then((response) => {
+      setTwitterUser(response.data);
+    });
+  }, []);
+  if (!twitterUser) return null;
+
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -52,8 +63,13 @@ function DrawerNavigator() {
           headerLeft: () => (
             <TouchableWithoutFeedback onPress={() => navigation.toggleDrawer()}>
               <Image
-                source={require("../assets/pic/Gut.jpg")}
-                style={{ height: 40, width: 40, borderRadius: 30, margin: 15 }}
+                source={{ uri: twitterUser.data.profile_image_url }}
+                style={{
+                  height: 40,
+                  width: 40,
+                  borderRadius: 30,
+                  margin: 15,
+                }}
               />
             </TouchableWithoutFeedback>
           ),
