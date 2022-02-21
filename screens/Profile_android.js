@@ -5,17 +5,16 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  Image,
   Animated,
   TouchableOpacity,
 } from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 
 import GetApitweets from "../components/Tweets/getApiTweets";
-import newApiRequestUser from "../data/ApiServiceUser";
 import ProfilePicture from "../components/ProfilePicture";
+import ProfileUser from "../components/ProfileUser";
+import GetApitweetsUser from "../components/TweetsUser/getApiTweetsUser";
 
 const HEADER_MAX_HEIGHT = 120;
 const HEADER_MIN_HEIGHT = 70;
@@ -248,77 +247,10 @@ class ProfileScreenAndroid extends Component {
               <ProfilePicture size={null} />
             </Animated.View>
 
-            {/* Name */}
-            <Text
-              style={[
-                styles.text,
-                {
-                  fontSize: 24,
-                  fontWeight: "bold",
-                  marginTop: 10,
-                },
-              ]}
-            >
-              {nameTweet}
-            </Text>
-
-            {/* UserName */}
-            <Text
-              style={[
-                styles.text,
-                {
-                  fontSize: 15,
-                  color: "gray",
-                  marginBottom: 15,
-                },
-              ]}
-            >
-              @{userNameTweet}
-            </Text>
-            {/* Profile Follow */}
-            <View
-              style={{
-                flexDirection: "row",
-                marginBottom: 15,
-              }}
-            >
-              {/* Following */}
-              <Text
-                style={[
-                  styles.text,
-                  {
-                    fontWeight: "bold",
-                    marginRight: 10,
-                  },
-                ]}
-              >
-                {followingTweeter}{" "}
-                <Text
-                  style={{
-                    color: "gray",
-                    fontWeight: "normal",
-                  }}
-                >
-                  Following
-                </Text>
-              </Text>
-
-              {/* Followers */}
-              <Text style={[styles.text, { fontWeight: "bold" }]}>
-                {followerTweeter}{" "}
-                <Text
-                  style={{
-                    color: "gray",
-                    fontWeight: "normal",
-                  }}
-                >
-                  Followers
-                </Text>
-              </Text>
-            </View>
+            <ProfileUser />
           </View>
           <View>
-            <GetApitweets />
+            <GetApitweetsUser />
           </View>
         </ScrollView>
       </View>

@@ -1,7 +1,7 @@
 import axios from "axios";
-import { CONFIG } from "../constants/Api_constant";
+import { TWEETERSNASA } from "../constants/Api_constant";
 
 function newAPIrequest({}) {
-  return axios(CONFIG);
+  return axios(TWEETERSNASA);
 }
 export default newAPIrequest;
