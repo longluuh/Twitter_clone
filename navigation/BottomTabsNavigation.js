@@ -6,12 +6,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import SearchScreen from "../screens/Search";
 import NontificationScreen from "../screens/Nontification";
-import TweetDetailScreen from "../screens/TweetDetail";
+import MessagesScreen from "../screens/Messages";
 import NewTweetScreen from "../screens/NewTweetScreen";
 import NewCommentScreen from "../screens/NewCommentScreen";
 import NewRetweetScreen from "../screens/NewRetweetScreen";
 
 import DrawerNavigator from "./DrawerNavigator";
+import DrawerNavigatorSearchScreen from "./DrawerNavigatorsSearchScreen";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -55,7 +56,7 @@ function BottomTabNavigator() {
         />
         <BottomTab.Screen
           name="Mail"
-          component={TweetDetailScreen}
+          component={MessagesScreen}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Feather name="mail" size={24} color="dodgerblue" />
@@ -103,6 +104,17 @@ function HomeNavigator() {
       <TabOneStack.Screen name="NewTweet" component={NewTweetScreen} />
       <TabOneStack.Screen name="NewComment" component={NewCommentScreen} />
       <TabOneStack.Screen name="NewRetweet" component={NewRetweetScreen} />
+    </TabOneStack.Navigator>
+  );
+}
+
+function SearchNavigator() {
+  return (
+    <TabOneStack.Navigator screenOptions={{ headerShown: false }}>
+      <TabOneStack.Screen
+        name="SearchScreen"
+        component={DrawerNavigatorSearchScreen}
+      />
     </TabOneStack.Navigator>
   );
 }

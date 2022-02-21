@@ -16,16 +16,16 @@ import Colors from "../constants/Colors";
 
 const Drawer = createDrawerNavigator();
 
-function NotifiScreenDrawer() {
+function MessScreenDrawer() {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Nontification Screen</Text>
+      <Text>Messages Screen</Text>
       <NewTweetButton />
     </View>
   );
 }
 
-const NontificationScreen = () => {
+const MessagesScreen = () => {
   const [twitterUser, setTwitterUser] = React.useState(null);
   React.useEffect(() => {
     newApiRequestUser({}).then((response) => {
@@ -45,19 +45,19 @@ const NontificationScreen = () => {
     >
       <Drawer.Screen
         name="Home"
-        component={NotifiScreenDrawer}
+        component={MessScreenDrawer}
         options={({ navigation }) => ({
           headerShown: true,
           headerTitle: () => (
             <Text
               style={{
-                marginHorizontal: "27%",
+                marginHorizontal: "32%",
                 color: "black",
                 fontWeight: "bold",
                 fontSize: 19,
               }}
             >
-              Nontifications
+              Messages
             </Text>
           ),
           headerRight: () => (
@@ -65,7 +65,7 @@ const NontificationScreen = () => {
               name="settings-outline"
               size={30}
               color={Colors.light.tint}
-              style={{ color: "black", marginRight: 15 }}
+              style={{ color: "black", marginHorizontal: 15 }}
             />
           ),
           headerLeft: () => (
@@ -86,7 +86,7 @@ const NontificationScreen = () => {
     </Drawer.Navigator>
   );
 };
-export default NontificationScreen;
+export default MessagesScreen;
 
 const styles = StyleSheet.create({
   container: {
